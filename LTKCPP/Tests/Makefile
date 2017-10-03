@@ -16,7 +16,7 @@
 ############################################################################
 
 LIBDIR=../Library
-XML2DIR=../../opensource/include/libxml2
+XML2DIR=/usr/include/libxml2
 INCL = -I$(LIBDIR) -I$(XML2DIR)
 
 #CPPFLAGS = -O -Wall $(INCL)
@@ -25,7 +25,7 @@ CXX             = g++
 CPPFLAGS        = -g -Wall $(INCL)
 
 LTKCPP_LIB = $(LIBDIR)/libltkcpp.a
-XML2_LIB = ../../opensource/lib/libxml2.a
+XML2_LIB = /usr/lib64/libxml2.a
 LTKCPP_HDRS = \
 	$(LIBDIR)/ltkcpp.h		\
 	$(LIBDIR)/ltkcpp_base.h		\
