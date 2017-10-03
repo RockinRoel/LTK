@@ -35,7 +35,8 @@
  */
 
 #include <list>
-#include <string.h>         /* memcpy() */
+#include <cstring>         /* memcpy() */
+#include <cstdint>
 
 #define FALSE       0
 #define TRUE        1
@@ -51,50 +52,31 @@ namespace LLRP
  * good to go.
  */
 
-#if defined(linux) || defined(__APPLE__)
-#include <stdint.h>
 /** Basic type for LLRP 8-bit unsigned data values*/
-typedef uint8_t                 llrp_u8_t;
+using llrp_u8_t = std::uint8_t;
 /** Basic type for LLRP 8-bit signed data values*/
-typedef int8_t                  llrp_s8_t;
+using llrp_s8_t = std::int8_t;
 /** Basic type for LLRP 16-bit unsigned data values*/
-typedef uint16_t                llrp_u16_t;
+using llrp_u16_t = std::uint16_t;
 /** Basic type for LLRP 16-bit signed data values*/
-typedef int16_t                 llrp_s16_t;
+using llrp_s16_t = std::int16_t;
 /** Basic type for LLRP 32-bit unsigned data values*/
-typedef uint32_t                llrp_u32_t;
+using llrp_u32_t = std::uint32_t;
 /** Basic type for LLRP 32-bit signed data values*/
-typedef int32_t                 llrp_s32_t;
+using llrp_s32_t = std::int32_t;
 /** Basic type for LLRP 64-bit unsigned data values*/
-typedef uint64_t                llrp_u64_t;
+using llrp_u64_t = std::uint64_t;
 /** Basic type for LLRP 64-bit signed data values*/
-typedef int64_t                 llrp_s64_t;
+using llrp_s64_t = std::int16_t;
 /** Basic type for LLRP 1-bit unsigned data values*/
-typedef uint8_t                 llrp_u1_t;
+using llrp_u1_t = std::uint8_t;
 /** Basic type for LLRP 2-bit unsigned data values*/
-typedef uint8_t                 llrp_u2_t;
+using llrp_u2_t = std::uint8_t;
 /** Basic type for LLRP utf8 character values*/
-typedef uint8_t                 llrp_utf8_t;
+using llrp_utf8_t = std::uint8_t;
 /** Basic type for LLRP boolean values*/
-typedef bool                    llrp_bool_t;
+using llrp_bool_t = bool;
 /** Basic type for LLRP byte encoded values */
-typedef uint8_t                 llrp_byte_t;
-#endif /* linux */
-
-#ifdef WIN32
-typedef unsigned char           llrp_u8_t;
-typedef signed char             llrp_s8_t;
-typedef unsigned short          llrp_u16_t;
-typedef signed short            llrp_s16_t;
-typedef unsigned int            llrp_u32_t;
-typedef signed int              llrp_s32_t;
-typedef unsigned long long      llrp_u64_t;
-typedef signed long long        llrp_s64_t;
-typedef unsigned char           llrp_u1_t;
-typedef unsigned char           llrp_u2_t;
-typedef unsigned char           llrp_utf8_t;
-typedef bool                    llrp_bool_t;
-typedef unsigned char           llrp_byte_t;
-#endif /* WIN32 */
+using llrp_byte_t = std::uint8_t;
 
 };  /* namespace LLRP */

@@ -203,8 +203,7 @@ main (
 
             default:
                 usage(av[0]);
-                /* no return */
-                break;
+                return 1;
             }
         }
 
@@ -213,7 +212,7 @@ main (
     else
     {
         usage(av[0]);
-        /* no return */
+        return 1;
     }
 
     /*
@@ -228,11 +227,11 @@ main (
      */
     if(0 == rc)
     {
-        exit(0);
+        return 0;
     }
     else
     {
-        exit(2);
+        return 2;
     }
     /*NOTREACHED*/
 }
@@ -263,7 +262,6 @@ usage (
     printf("\n");
     printf("Each /v increases verbosity level\n");
 #endif /* WIN32 */
-    exit(1);
 }
 
 

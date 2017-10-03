@@ -26,6 +26,8 @@
  ** @brief  Class for handling two-way LLRP message traffic
  **
  *****************************************************************************/
+
+#include <ctime>
  
 
 namespace LLRP
@@ -179,9 +181,9 @@ class CConnection
     EResultCode
     recvAdvance (
       int                           nMaxMS,
-      time_t                        timeLimit);
+      std::time_t                   timeLimit);
 
-    time_t
+    std::time_t
     calculateTimeLimit (
       int                           nMaxMS);
 };

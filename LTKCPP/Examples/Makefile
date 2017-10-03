@@ -21,7 +21,7 @@ INCL = -I$(LIBDIR)
 #CPPFLAGS = -O -Wall $(INCL)
 AR              = ar
 CXX             = g++
-CPPFLAGS        = -g -Wall $(INCL)
+CPPFLAGS        = -g3 -Wall $(INCL) -std=c++14
 
 LTKCPP_LIB = $(LIBDIR)/libltkcpp.a
 LTKCPP_HDRS = \

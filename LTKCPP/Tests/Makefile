@@ -22,10 +22,12 @@ INCL = -I$(LIBDIR) -I$(XML2DIR)
 #CPPFLAGS = -O -Wall $(INCL)
 AR              = ar
 CXX             = g++
-CPPFLAGS        = -g -Wall $(INCL)
+CPPFLAGS        = -g3 -Wall $(INCL) -std=c++14
 
 LTKCPP_LIB = $(LIBDIR)/libltkcpp.a
 XML2_LIB = /usr/lib64/libxml2.a
+GZIP_LIB = /usr/lib64/libz.a
+LZMA_LIB = /usr/lib64/liblzma.a
 LTKCPP_HDRS = \
 	$(LIBDIR)/ltkcpp.h		\
 	$(LIBDIR)/ltkcpp_base.h		\
@@ -40,8 +42,8 @@ all: xml2llrp llrp2xml dx201
 everything:
 	make all
 
-xml2llrp : xml2llrp.o $(LTKCPP_LIB) $(XML2_LIB)
-	$(CXX) $(CPPFLAGS) -o xml2llrp xml2llrp.o $(LTKCPP_LIB) $(XML2_LIB) 
+xml2llrp : xml2llrp.o $(LTKCPP_LIB) $(XML2_LIB) $(GZIP_LIB) $(LZMA_LIB)
+	$(CXX) $(CPPFLAGS) -o xml2llrp xml2llrp.o $(LTKCPP_LIB) $(XML2_LIB) $(GZIP_LIB) $(LZMA_LIB)
 
 xml2llrp.o : xml2llrp.cpp $(LTKCPP_HDRS)
 	$(CXX) -c $(CPPFLAGS) xml2llrp.cpp -o xml2llrp.o

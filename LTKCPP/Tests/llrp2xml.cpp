@@ -141,7 +141,7 @@ main (int ac, char *av[])
     if(ac != 2)
     {
         fprintf(stderr, "ERROR: Bad usage\nusage: %s INPUTFILE\n", av[0]);
-        exit(1);
+        return 1;
     }
 
     /*
@@ -155,7 +155,7 @@ main (int ac, char *av[])
     if(NULL == infp)
     {
         perror(av[1]);
-        exit(2);
+        return 2;
     }
 
     printf("%s\n", g_aPacketSequenceHeader);
@@ -229,7 +229,7 @@ main (int ac, char *av[])
                         nInBuffer + MyFrameExtract.m_nBytesNeeded)
                 {
                     fprintf(stderr,"Input frame too big\n");
-                    exit(3);
+                    return 3;
                 }
 
                 rc = (int)fread(&aInBuffer[nInBuffer], 1u,
