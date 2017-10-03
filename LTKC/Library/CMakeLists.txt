@@ -26,6 +26,10 @@ SET(LTKC_SRC
     ltkc_typeregistry.c
     ltkc_genout.c)
 
-add_library(libltkc ${LTKC_SRC})
-add_dependencies(libltkc gen-ltkc)
-target_link_libraries(libltkc PUBLIC /usr/lib64/libxml2.a /usr/lib64/libz.a /usr/lib64/liblzma.a)
+add_library(ltkc ${LTKC_SRC})
+add_dependencies(ltkc gen-ltkc)
+target_link_libraries(ltkc PUBLIC /usr/lib64/libxml2.a /usr/lib64/libz.a /usr/lib64/liblzma.a)
+
+install(TARGETS ltkc DESTINATION lib)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/out_ltkc.h DESTINATION include/ltkc)
+install(FILES version.inc DESTINATION include/ltkc)

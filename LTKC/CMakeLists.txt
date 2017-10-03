@@ -9,3 +9,10 @@ include_directories(${CMAKE_BINARY_DIR}/Library)
 add_subdirectory(Library)
 add_subdirectory(Examples)
 add_subdirectory(Tests)
+
+install(
+    DIRECTORY Library/
+    DESTINATION include/ltkc
+    FILES_MATCHING
+    PATTERN "LLRP.org" EXCLUDE
+    PATTERN "*.h")
