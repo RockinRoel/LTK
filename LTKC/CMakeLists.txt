@@ -4,6 +4,7 @@ project(LTKC)
 cmake_policy(SET CMP0003 NEW)
 
 include_directories(/usr/include/libxml2)
+include_directories(${CMAKE_BINARY_DIR}/Library)
 
 add_subdirectory(Library)
 add_subdirectory(Examples)
